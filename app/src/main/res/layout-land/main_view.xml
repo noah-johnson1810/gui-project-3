@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/studentName"
+        android:layout_width="429dp"
+        android:layout_height="72dp"
+        android:ems="10"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Noah Johnson Hamster Run"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="2dp" />
+
+
+    <TextView
+        android:id="@+id/moves"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="Moves: 0"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="74dp" />
+
+    <TextView
+        android:id="@+id/energy"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="Energy: 10"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="124dp" />
+
+    <TextView
+        android:id="@+id/stores"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="Home Stores: 0"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+    <TextView
+        android:id="@+id/zoom"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="Zoom Power: 0"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="149dp" />
+
+    <TextView
+        android:id="@+id/food"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="Food in pouches: 0"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="99dp" />
+
+
+    <Button
+        android:id="@+id/zoomBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zoom"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="291dp" />
+
+    <Button
+        android:id="@+id/eatBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eat"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="347dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="349dp"
+        android:layout_height="347dp"
+        tools:layout_editor_absoluteX="191dp"
+        tools:layout_editor_absoluteY="63dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <Button
+        android:id="@+id/resetBtn"
+        android:layout_width="105dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="8dp"
+        android:text="RESET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/rightBtn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="4dp"
+        android:text="R"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="305dp" />
+
+    <Button
+        android:id="@+id/leftbtn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:text="L"
+        tools:layout_editor_absoluteX="562dp"
+        tools:layout_editor_absoluteY="305dp" />
+
+    <Button
+        android:id="@+id/downBtn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:text="D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="617dp" />
+
+    <Button
+        android:id="@+id/upBtn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:text="U"
+        tools:layout_editor_absoluteX="617dp"
+        tools:layout_editor_absoluteY="254dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

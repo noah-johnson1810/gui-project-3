@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Hamster Run Johnson Noah</string>
+    <string name="moves_string">0</string>
+    <string name="energy_string">10</string>
+    <string name="stores_string">0</string>
+    <string name="zoom_string">0</string>
+    <string name="food_string">0</string>
 </resources>

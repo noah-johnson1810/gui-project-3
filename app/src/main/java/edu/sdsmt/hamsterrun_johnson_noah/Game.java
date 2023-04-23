@@ -3,11 +3,12 @@ package edu.sdsmt.hamsterrun_johnson_noah;
 import java.util.Objects;
 
 public class Game {
-
+    public static final int GRID_SIZE = 5;
     static final int BARS_LIMIT = 5;
-    static final int WIN_AMOUNT = 30;
+    static final int WIN_AMOUNT = 15;
     public static final int FOOD_PICK_AMOUNT = 5;
 
+    private int moveCost;
 
     private Location location = new Location(0, 0);
     private int energyLevel = 10;
@@ -16,7 +17,15 @@ public class Game {
     private int zoomsLeft = 0;
     private int moveCount = 0;
     private boolean isLost = false;
+    private boolean isZooming = false;
+    private boolean pickupFlag = true;
 
+    private StateMachine stateMachine;
+
+    Game() {
+        this.stateMachine = new StateMachine(this);
+        this.moveCost = 1;
+    }
     private Board board = new Board();
 
     public Location getLocation() {
@@ -29,7 +38,7 @@ public class Game {
         this.location.x += x;
         this.location.y += y;
         this.moveCount++;
-        this.energyLevel -= 1;
+        this.energyLevel -= this.moveCost;
         if(this.energyLevel < 0)
             setIsLost(true);
         if(Objects.equals(this.board.board.get(this.location.y * 5 + this.location.x).type, "bars")) {
@@ -37,6 +46,8 @@ public class Game {
         }
         if(this.location.x == 4 && this.location.y == 4)
             depositFoodStores();
+        if(this.pickupFlag)
+            this.pickup();
     }
 
     public void depositFoodStores() {
@@ -44,7 +55,7 @@ public class Game {
         foodInPouches = 0;
     }
 
-    void pickup() {
+    public void pickup() {
         Square currentSquare = this.board.board.get(this.location.y * 5 + this.location.x);
         currentSquare.pickup(this);
     }
@@ -56,7 +67,7 @@ public class Game {
         }
     }
 
-    int getFood() {
+    public int getFood() {
         return this.foodInPouches;
     }
 
@@ -82,18 +93,31 @@ public class Game {
         return this.zoomsLeft;
     }
 
-    boolean isLost() {
+    public boolean isLost() {
         return isLost;
     }
 
-    boolean isWon() {
+    public boolean isWon() {
         return ( this.storedFood >= WIN_AMOUNT);
+    }
+
+    public boolean getIsZooming() {
+        return isZooming;
+    }
+
+    public void setIsZooming(boolean isZooming) {
+        this.isZooming = isZooming;
     }
 
     void reset() {
         this.moveCount = 0;
         this.energyLevel = 10;
-        this.foodInPouches = 20;
+        this.foodInPouches = 0;
+        this.location.x = 0;
+        this.location.y = 0;
+        this.zoomsLeft = 0;
+        this.storedFood = 0;
+        this.moveCost = 1;
     }
 
     Location getPlayerLocation() {
@@ -116,6 +140,19 @@ public class Game {
     }
 
     public void passThroughBars() {
-        this.foodInPouches = BARS_LIMIT;
+        if(this.foodInPouches > BARS_LIMIT)
+            this.foodInPouches = BARS_LIMIT;
+    }
+
+    public void setMoveCost(int moveCost) {
+        this.moveCost = moveCost;
+    }
+
+    public StateMachine getStateMachine() {
+        return this.stateMachine;
+    }
+
+    public void setPickupFlag(boolean newValue) {
+        this.pickupFlag = newValue;
     }
 }
