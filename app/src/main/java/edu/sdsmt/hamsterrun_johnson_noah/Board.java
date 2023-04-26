@@ -1,47 +1,62 @@
 package edu.sdsmt.hamsterrun_johnson_noah;
 
-import java.sql.Array;
+/* Author: Noah Johnson
+ * Class: CSC 468 - GUI Programming
+ * Description: Board Class for Hamster Run Project
+ */
+
 import java.util.ArrayList;
 
-import edu.sdsmt.hamsterrun_johnson_noah.Square;
 
 public class Board {
-    public ArrayList<Square> board = new ArrayList<>();
+
+    // private variables
+    private ArrayList<Square> board = new ArrayList<>();
+
+    /* Description: Constructor for board class
+     */
 
     Board() {
         // row 0
-        board.add(new Square(new Location(0, 0), "tube"));
-        board.add(new Square(new Location(1, 0), "tube"));
-        board.add(new Square(new Location(2, 0), "bars"));
-        board.add(new Square(new Location(2, 0), "food", 10));
-        board.add(new Square(new Location(2, 0), "tube"));
+        board.add(new Square("tube"));
+        board.add(new Square("tube"));
+        board.add(new Square("bars"));
+        board.add(new Square("food", 10));
+        board.add(new Square("tube"));
 
         // row 1
-        board.add(new Square(new Location(0, 1), "food", 1));
-        board.add(new Square(new Location(1, 1), "tube"));
-        board.add(new Square(new Location(2, 1), "zoom", 1));
-        board.add(new Square(new Location(3, 1), "tube"));
-        board.add(new Square(new Location(4, 1), "tube"));
+        board.add(new Square("food", 1));
+        board.add(new Square("tube"));
+        board.add(new Square("zoom", 1));
+        board.add(new Square("tube"));
+        board.add(new Square("tube"));
 
         // row 2
-        board.add(new Square(new Location(0, 2), "tube"));
-        board.add(new Square(new Location(1, 2), "tube"));
-        board.add(new Square(new Location(2, 2), "food", 5));
-        board.add(new Square(new Location(3, 2), "tube"));
-        board.add(new Square(new Location(4, 2), "tube"));
+        board.add(new Square("tube"));
+        board.add(new Square("tube"));
+        board.add(new Square("food", 5));
+        board.add(new Square("tube"));
+        board.add(new Square("tube"));
 
         // row 3
-        board.add(new Square(new Location(0, 3), "food", 2));
-        board.add(new Square(new Location(1, 3), "tube"));
-        board.add(new Square(new Location(2, 3), "person"));
-        board.add(new Square(new Location(3, 3), "bars"));
-        board.add(new Square(new Location(4, 3), "bars"));
+        board.add(new Square("food", 2));
+        board.add(new Square("tube"));
+        board.add(new Square("person"));
+        board.add(new Square("bars"));
+        board.add(new Square("bars"));
 
         // row 4
-        board.add(new Square(new Location(0, 4), "zoom", 1));
-        board.add(new Square(new Location(1, 4), "tube"));
-        board.add(new Square(new Location(2, 4), "bars"));
-        board.add(new Square(new Location(3, 4), "tube"));
-        board.add(new Square(new Location(4, 4), "home"));
+        board.add(new Square("zoom", 1));
+        board.add(new Square("tube"));
+        board.add(new Square("bars"));
+        board.add(new Square("tube"));
+        board.add(new Square("home"));
+    }
+
+    /* Description: gets the array list of squares that makes up the board
+     * Returns: the array list of squares
+     */
+    public ArrayList<Square> getBoard() {
+        return this.board;
     }
 }
