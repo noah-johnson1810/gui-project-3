@@ -2,130 +2,279 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/studentName"
-        android:layout_width="429dp"
-        android:layout_height="72dp"
-        android:ems="10"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="Noah Johnson Hamster Run"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="2dp" />
-
-
-    <TextView
-        android:id="@+id/moves"
-        android:layout_width="150dp"
-        android:layout_height="25dp"
-        android:ems="10"
-        android:text="Moves: 0"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="74dp" />
-
-    <TextView
-        android:id="@+id/energy"
-        android:layout_width="150dp"
-        android:layout_height="25dp"
-        android:ems="10"
-        android:text="Energy: 10"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="124dp" />
-
-    <TextView
-        android:id="@+id/stores"
-        android:layout_width="150dp"
-        android:layout_height="25dp"
-        android:ems="10"
-        android:text="Home Stores: 0"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="174dp" />
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
     <TextView
         android:id="@+id/zoom"
-        android:layout_width="150dp"
+        android:layout_width="25dp"
         android:layout_height="25dp"
         android:ems="10"
-        android:text="Zoom Power: 0"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="149dp" />
+        android:text="@string/zoom_string"
+        app:layout_constraintStart_toEndOf="@+id/zoomsLeftText"
+        app:layout_constraintTop_toTopOf="@+id/zoomsLeftText" />
+
+    <TextView
+        android:id="@+id/zoomsLeftText"
+        android:layout_width="98dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="@string/zooms_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/energyText" />
+
+    <TextView
+        android:id="@+id/totalMovesText"
+        android:layout_width="98dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="@string/moves"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grayBackgroundButton" />
+
+    <TextView
+        android:id="@+id/moves"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="@string/moves_string"
+        app:layout_constraintStart_toEndOf="@+id/totalMovesText"
+        app:layout_constraintTop_toTopOf="@+id/totalMovesText" />
+
+    <TextView
+        android:id="@+id/stores"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="@string/stores_string"
+        app:layout_constraintStart_toEndOf="@+id/storesText"
+        app:layout_constraintTop_toBottomOf="@+id/zoomsLeftText" />
+
+    <TextView
+        android:id="@+id/storesText"
+        android:layout_width="98dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="@string/stored_food"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zoomsLeftText" />
+
+    <TextView
+        android:id="@+id/energy"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="@string/energy_string"
+        app:layout_constraintStart_toEndOf="@+id/energyText"
+        app:layout_constraintTop_toTopOf="@+id/energyText" />
+
+    <TextView
+        android:id="@+id/energyText"
+        android:layout_width="98dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="@string/energy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodText" />
 
     <TextView
         android:id="@+id/food"
-        android:layout_width="150dp"
+        android:layout_width="25dp"
         android:layout_height="25dp"
         android:ems="10"
-        android:text="Food in pouches: 0"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="99dp" />
+        android:text="@string/food_string"
+        app:layout_constraintStart_toEndOf="@+id/foodText"
+        app:layout_constraintTop_toTopOf="@+id/foodText" />
 
-
-    <Button
-        android:id="@+id/zoomBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Zoom"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="291dp" />
-
-    <Button
-        android:id="@+id/eatBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Eat"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="347dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="349dp"
-        android:layout_height="347dp"
-        tools:layout_editor_absoluteX="191dp"
-        tools:layout_editor_absoluteY="63dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+    <TextView
+        android:id="@+id/foodText"
+        android:layout_width="98dp"
+        android:layout_height="25dp"
+        android:ems="10"
+        android:text="@string/food"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalMovesText" />
 
     <Button
         android:id="@+id/resetBtn"
         android:layout_width="105dp"
         android:layout_height="53dp"
-        android:layout_marginEnd="8dp"
-        android:text="RESET"
+        android:onClick="handleResetButton"
+        android:text="@string/reset"
+        app:layout_constraintBottom_toTopOf="@+id/eatBtn"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/eatBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="handleEatButton"
+        android:text="@string/eat"
+        app:layout_constraintBottom_toTopOf="@+id/GridLayout1"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/zoomBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="handleZoomButton"
+        android:text="@string/zoom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <edu.sdsmt.hamsterrun_johnson_noah.GameView
+        android:id="@+id/gameArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="V,1:1"
+        app:layout_constraintEnd_toStartOf="@+id/GridLayout1"
+        app:layout_constraintStart_toEndOf="@+id/moves"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/option1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF8B35"
+        android:clickable="true"
+        android:contentDescription="@string/floatingactionbuttonoption1"
+        android:onClick="handleTintOptionOneClick"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
+        app:layout_constraintEnd_toEndOf="@+id/floatingActionButton"
+        app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
+        app:layout_constraintTop_toTopOf="@+id/floatingActionButton"
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        tools:layout_editor_absoluteX="480dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/option2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2587be"
+        android:clickable="true"
+        android:contentDescription="@string/floatingactionbuttonoption2"
+        android:onClick="handleTintOptionTwoClick"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
+        app:layout_constraintEnd_toEndOf="@+id/floatingActionButton"
+        app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
+        app:layout_constraintTop_toTopOf="@+id/floatingActionButton"
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        tools:layout_editor_absoluteX="480dp"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/option3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#6c25be"
+        android:clickable="true"
+        android:contentDescription="@string/floatingactionbuttonoption3"
+        android:onClick="handleTintOptionThreeClick"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
+        app:layout_constraintEnd_toEndOf="@+id/floatingActionButton"
+        app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
+        app:layout_constraintTop_toTopOf="@+id/floatingActionButton"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <GridLayout
+        android:id="@+id/GridLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/upBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:onClick="handleUpButton"
+            android:text="@string/upButton"
+            tools:layout_editor_absoluteX="679dp"
+            tools:layout_editor_absoluteY="351dp" />
+
+        <Button
+            android:id="@+id/rightBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:onClick="handleRightButton"
+            android:text="@string/rightButton"
+            tools:layout_editor_absoluteX="776dp"
+            tools:layout_editor_absoluteY="351dp" />
+
+        <Button
+            android:id="@+id/leftbtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:onClick="handleLeftButton"
+            android:text="@string/leftButton"
+            tools:layout_editor_absoluteX="679dp"
+            tools:layout_editor_absoluteY="408dp" />
+
+        <Button
+            android:id="@+id/downBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:onClick="handleDownButton"
+            android:text="@string/downButton"
+            tools:layout_editor_absoluteX="776dp"
+            tools:layout_editor_absoluteY="408dp" />
+
+    </GridLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/floatingactionbuttonhome"
+        android:onClick="handleFABControlClick"
+        app:layout_constraintBottom_toTopOf="@+id/resetBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toEndOf="@+id/gameArea"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.587"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="10dp" />
+
+    <Button
+        android:id="@+id/redBackgroundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF0000"
+        android:onClick="setRedBackground"
+        android:text="Red"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/rightBtn"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="4dp"
-        android:text="R"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="305dp" />
+        android:id="@+id/grayBackgroundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#aaaaaa"
+        android:onClick="setGrayBackground"
+        android:text="Gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redBackgroundButton" />
 
-    <Button
-        android:id="@+id/leftbtn"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:text="L"
-        tools:layout_editor_absoluteX="562dp"
-        tools:layout_editor_absoluteY="305dp" />
-
-    <Button
-        android:id="@+id/downBtn"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:text="D"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="617dp" />
-
-    <Button
-        android:id="@+id/upBtn"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:text="U"
-        tools:layout_editor_absoluteX="617dp"
-        tools:layout_editor_absoluteY="254dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

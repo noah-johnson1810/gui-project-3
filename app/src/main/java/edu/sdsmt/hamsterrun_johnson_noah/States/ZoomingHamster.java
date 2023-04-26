@@ -30,6 +30,10 @@ public class ZoomingHamster extends State {
         game.setPickupFlag(false);
         if(game.isLost() || game.isWon())
             stateMachine.setState(StateMachine.StateEnum.Ended);
+        else if (game.getResetFlag()) {
+            stateMachine.setState(StateMachine.StateEnum.Base);
+            game.reset();
+        }
         if(zoomMovesLeft == 0) {
             if (game.getFood() >= 15)
                 stateMachine.setState(StateMachine.StateEnum.Heavy);
@@ -40,6 +44,6 @@ public class ZoomingHamster extends State {
     }
 
     public String getStateName() {
-        return "edu.sdsmt.hamsterrun_johnson_noah.States.ZoomingHamster";
+        return this.getClass().getName();
     }
 }

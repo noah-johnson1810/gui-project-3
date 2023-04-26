@@ -5,4 +5,25 @@
     <string name="stores_string">0</string>
     <string name="zoom_string">0</string>
     <string name="food_string">0</string>
+    <string name="reset">RESET</string>
+    <string name="noah_johnson_hamster_run">Noah Johnson Hamster Run</string>
+    <string name="zoom">Zoom</string>
+    <string name="eat">Eat</string>
+    <string name="u">U</string>
+    <string name="l">L</string>
+    <string name="r">R</string>
+    <string name="d">D</string>
+    <string name="zooms_left">Zooms Left:</string>
+    <string name="moves">Moves:</string>
+    <string name="stored_food">Stored Food:</string>
+    <string name="energy">Energy:</string>
+    <string name="food">Food:</string>
+    <string name="floatingactionbuttonoption1">floatingActionButtonOption1</string>
+    <string name="floatingactionbuttonoption2">floatingActionButtonOption2</string>
+    <string name="floatingactionbuttonoption3">floatingActionButtonOption3</string>
+    <string name="upButton">U</string>
+    <string name="rightButton">R</string>
+    <string name="leftButton">L</string>
+    <string name="downButton">D</string>
+    <string name="floatingactionbuttonhome">floatingActionButtonHome</string>
 </resources>

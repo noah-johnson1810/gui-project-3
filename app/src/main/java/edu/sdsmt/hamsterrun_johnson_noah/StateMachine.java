@@ -10,8 +10,12 @@ public class StateMachine {
 
     private StateEnum state = StateEnum.Base;
     private State[] stateArray = null;
+    private MainActivity mainActivity;
+    private Game game;
 
-    StateMachine(Game game) {
+    StateMachine(Game game, MainActivity mainActivity) {
+        this.mainActivity = mainActivity;
+        this.game = game;
         stateArray = new State[]{
                 new BaseHamster(game, this),
                 new HeavyHamster(game, this),
@@ -27,10 +31,15 @@ public class StateMachine {
     }
 
     public String getCurrentStateName() {
-        return stateArray[state.ordinal()].getStateName(); // TODO: not sure about this
+        return stateArray[state.ordinal()].getStateName();
     }
 
     public void doMaintenanceTask( ) {
         stateArray[state.ordinal()].maintenanceTask();
+    }
+
+    public void endGame(String endingDialogMessage) {
+        mainActivity.showEndingDialog(endingDialogMessage);
+        setState(StateEnum.Base);
     }
 }

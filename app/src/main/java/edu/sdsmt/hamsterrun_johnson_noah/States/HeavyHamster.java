@@ -26,6 +26,10 @@ public class HeavyHamster extends State {
         game.setPickupFlag(true);
         if(game.isLost() || game.isWon())
             stateMachine.setState(StateMachine.StateEnum.Ended);
+        else if (game.getResetFlag()) {
+            stateMachine.setState(StateMachine.StateEnum.Base);
+            game.reset();
+        }
         if(game.getIsZooming())
             stateMachine.setState(StateMachine.StateEnum.Zooming);
         else if(game.getFood() < 15)
@@ -33,6 +37,6 @@ public class HeavyHamster extends State {
     }
 
     public String getStateName() {
-        return "edu.sdsmt.hamsterrun_johnson_noah.States.HeavyHamster";
+        return this.getClass().getName();
     }
 }

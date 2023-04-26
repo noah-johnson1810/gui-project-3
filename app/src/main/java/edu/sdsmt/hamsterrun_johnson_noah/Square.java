@@ -32,6 +32,7 @@ public class Square {
         }
         else if (Objects.equals(this.type, "person")) {
             hamster.setIsLost(true);
+            hamster.setPickedUpByHumanFlag(true);
         }
     }
 }

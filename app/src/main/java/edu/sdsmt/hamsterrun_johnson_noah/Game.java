@@ -3,13 +3,15 @@ package edu.sdsmt.hamsterrun_johnson_noah;
 import java.util.Objects;
 
 public class Game {
+
+    // public constant variables
     public static final int GRID_SIZE = 5;
-    static final int BARS_LIMIT = 5;
-    static final int WIN_AMOUNT = 15;
+    public static final int BARS_LIMIT = 5;
+    public static final int WIN_AMOUNT = 15;
     public static final int FOOD_PICK_AMOUNT = 5;
 
-    private int moveCost;
-
+    // private variables accessed by getters/setters
+    private int moveCost = 1;
     private Location location = new Location(0, 0);
     private int energyLevel = 10;
     private int foodInPouches = 0;
@@ -19,34 +21,28 @@ public class Game {
     private boolean isLost = false;
     private boolean isZooming = false;
     private boolean pickupFlag = true;
-
-    private StateMachine stateMachine;
-
-    Game() {
-        this.stateMachine = new StateMachine(this);
-        this.moveCost = 1;
-    }
+    private boolean resetFlag = false;
+    private boolean pickedUpByHuman = false;
     private Board board = new Board();
-
     public Location getLocation() {
         return this.location;
     }
 
     void move(int x, int y) {
-        if(this.location.x + x < 0 ||  this.location.x + x > 4 || this.location.y + y < 0 || this.location.y + y > 4)
-                return;
+        if (this.location.x + x < 0 || this.location.x + x > 4 || this.location.y + y < 0 || this.location.y + y > 4)
+            return;
         this.location.x += x;
         this.location.y += y;
         this.moveCount++;
         this.energyLevel -= this.moveCost;
-        if(this.energyLevel < 0)
+        if (this.energyLevel < 0)
             setIsLost(true);
-        if(Objects.equals(this.board.board.get(this.location.y * 5 + this.location.x).type, "bars")) {
+        if (Objects.equals(this.board.board.get(this.location.y * 5 + this.location.x).type, "bars")) {
             passThroughBars();
         }
-        if(this.location.x == 4 && this.location.y == 4)
+        if (this.location.x == 4 && this.location.y == 4)
             depositFoodStores();
-        if(this.pickupFlag)
+        if (this.pickupFlag)
             this.pickup();
     }
 
@@ -61,7 +57,7 @@ public class Game {
     }
 
     void eat() {
-        if(foodInPouches > 0) {
+        if (foodInPouches > 0) {
             this.foodInPouches--;
             setEnergy(this.energyLevel + 5);
         }
@@ -80,7 +76,7 @@ public class Game {
     }
 
     void setEnergy(int newEnergyLevel) {
-        if(newEnergyLevel > 15)
+        if (newEnergyLevel > 15)
             newEnergyLevel = 15;
         this.energyLevel = newEnergyLevel;
     }
@@ -98,7 +94,7 @@ public class Game {
     }
 
     public boolean isWon() {
-        return ( this.storedFood >= WIN_AMOUNT);
+        return (this.storedFood >= WIN_AMOUNT);
     }
 
     public boolean getIsZooming() {
@@ -109,7 +105,7 @@ public class Game {
         this.isZooming = isZooming;
     }
 
-    void reset() {
+    public void reset() {
         this.moveCount = 0;
         this.energyLevel = 10;
         this.foodInPouches = 0;
@@ -118,6 +114,11 @@ public class Game {
         this.zoomsLeft = 0;
         this.storedFood = 0;
         this.moveCost = 1;
+        this.pickedUpByHuman = false;
+        isLost = false;
+        isZooming = false;
+        pickupFlag = true;
+        resetFlag = false;
     }
 
     Location getPlayerLocation() {
@@ -126,7 +127,7 @@ public class Game {
 
     public void addToFoodInPouches(int amount) {
         this.foodInPouches += amount;
-        if(this.foodInPouches > 20) {
+        if (this.foodInPouches > 20) {
             this.foodInPouches = 20;
         }
     }
@@ -140,7 +141,7 @@ public class Game {
     }
 
     public void passThroughBars() {
-        if(this.foodInPouches > BARS_LIMIT)
+        if (this.foodInPouches > BARS_LIMIT)
             this.foodInPouches = BARS_LIMIT;
     }
 
@@ -148,11 +149,51 @@ public class Game {
         this.moveCost = moveCost;
     }
 
-    public StateMachine getStateMachine() {
-        return this.stateMachine;
-    }
-
     public void setPickupFlag(boolean newValue) {
         this.pickupFlag = newValue;
+    }
+
+    public boolean getResetFlag() {
+        return this.resetFlag;
+    }
+
+    public void setResetFlag(boolean newValue) {
+        this.resetFlag = newValue;
+    }
+
+    public int getEnergyLevel() {
+        return this.energyLevel;
+    }
+    
+    public boolean getPickedUpByHumanFlag() {
+        return this.pickedUpByHuman;
+    }
+
+    public void setPickedUpByHumanFlag(boolean newValue) {
+        this.pickedUpByHuman = newValue;
+    }
+
+    public void setZoomsLeft(int newZooms) {
+        this.zoomsLeft = newZooms;
+    }
+
+    public void setFood(int newFood) {
+        this.foodInPouches = newFood;
+    }
+
+    public void setStoredFood(int newStoredFood) {
+        this.storedFood = newStoredFood;
+    }
+
+    public void setMoves(int newMoves) {
+        this.moveCount = newMoves;
+    }
+
+    public void setLocationX(int newLocationX) {
+        this.location.x = newLocationX;
+    }
+
+    public void setLocationY(int newLocationY) {
+        this.location.y = newLocationY;
     }
 }
